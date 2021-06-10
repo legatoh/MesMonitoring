@@ -28,6 +28,14 @@ public class updateServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: update").append(request.getContextPath());
+		
+		pw.println("<html>");
+		pw.println("<body>");
+		
+		pw.println("<a href='productManagerSystem.jsp'>메인화면으로</a>");
+		pw.println("</body>");
+		pw.println("</html>");
+
 	}
 
 	/**

@@ -14,8 +14,6 @@ public class DAOBase implements DAO {
 	public Connection getConnection() throws SQLException {
 		String jdbc_driver = "org.mariadb.jdbc.Driver";
 		String db_url = "jdbc:mysql://localhost:3306/mysql";
-		// String jdbc_driver = "com.mysql.jdbc.Driver";
-		// String db_url = "jdbc:mysql://127.0.0.1:3306/mysql";
 
 		try {
 			Class.forName(jdbc_driver);

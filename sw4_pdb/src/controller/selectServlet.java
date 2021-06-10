@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,21 +39,29 @@ public class selectServlet extends HttpServlet {
 		PrintWriter pw = response.getWriter();
 		Enumeration<String> param = request.getParameterNames();
 		
-		DAOBase daoBase = new DAOBase();
+		DAOBase daoBase = new DAOBase();		// 새로운 DAOBase 객체 생성
 
 		String code = request.getParameter("code");
 		
-		productVO item = new productVO(code);
+		productVO item = new productVO(code);	// 입력받은 코드를 통해 새 productVO 객체 생성
 		
-		daoBase.selectRow(item);
+		daoBase.selectRow(item);				// code와 일치하는 쿼리문에서 정보를 추출하여 객체 업데이트
 		
-		pw.println("<html>");
-		pw.println("<body>");
+		// item에서 받은 정보를 원래 화면으로 전송
+		request.setAttribute("code", item.code);
+		request.setAttribute("pname", item.pname);
+		request.setAttribute("cost", item.cost);
+		request.setAttribute("pnum", item.pnum);
+		request.setAttribute("jnum", item.jnum);
+		request.setAttribute("sale", item.sale);
+		request.setAttribute("gcode", item.gcode);
 		
-		pw.println("<a href='productManagerSystem.jsp'>메인화면으로</a>");
-		pw.println("</body>");
-		pw.println("</html>");
-	}
+        ServletContext context = getServletContext();
+        RequestDispatcher dispatcher = context.getRequestDispatcher("/productSelectUpdate.jsp"); //넘길 페이지 주소
+        dispatcher.forward(request, response);
+		}
+	
+		// http://www.devkuma.com/books/pages/858 참고하여 리다이렉트로 고칠것
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
