@@ -1,11 +1,19 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Enumeration;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import model.DAOBase;
+import model.productVO;
 
 /**
  * Servlet implementation class deleteServlet
@@ -28,6 +36,19 @@ public class deleteServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: delete").append(request.getContextPath());
+		
+		DAOBase daoBase = new DAOBase();		// 새로운 DAOBase 객체 생성
+
+		String code = request.getParameter("code");
+		
+		productVO item = new productVO(code);	// 입력받은 코드를 통해 새 productVO 객체 생성
+		
+		daoBase.deleteRow(item);				// code와 일치하는 쿼리문에서 정보를 추출하여 객체 삭제
+				
+        ServletContext context = getServletContext();
+        RequestDispatcher dispatcher = context.getRequestDispatcher("/productSelectUpdate.jsp"); //넘길 페이지 주소
+        dispatcher.forward(request, response);
+	
 	}
 
 	/**

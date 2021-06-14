@@ -27,7 +27,7 @@
 </ul>
 	<input type='submit' value='등록' >
 	<input type='BUTTON' value='메인화면'
-		onclick="location.href='productManagerSystem.jsp'">
+		onclick="location.href='productMain.jsp'">
 </form>
 </body>
 </html>

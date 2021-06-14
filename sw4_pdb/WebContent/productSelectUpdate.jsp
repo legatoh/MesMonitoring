@@ -59,7 +59,7 @@
 		<input type='BUTTON' value='수정' name='upd' onclick="selectSUD('upd')">
 		<input type='BUTTON' value='삭제' name='del' onclick="selectSUD('del')">
 		<input type='BUTTON' value='메인화면'
-			onclick="location.href='productManagerSystem.jsp'">
+			onclick="location.href='productMain.jsp'">
 	</form>
 
 

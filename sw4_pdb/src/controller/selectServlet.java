@@ -36,8 +36,6 @@ public class selectServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=UTF-8");
-		PrintWriter pw = response.getWriter();
-		Enumeration<String> param = request.getParameterNames();
 		
 		DAOBase daoBase = new DAOBase();		// 새로운 DAOBase 객체 생성
 
@@ -59,6 +57,7 @@ public class selectServlet extends HttpServlet {
         ServletContext context = getServletContext();
         RequestDispatcher dispatcher = context.getRequestDispatcher("/productSelectUpdate.jsp"); //넘길 페이지 주소
         dispatcher.forward(request, response);
+
 		}
 	
 		// http://www.devkuma.com/books/pages/858 참고하여 리다이렉트로 고칠것
