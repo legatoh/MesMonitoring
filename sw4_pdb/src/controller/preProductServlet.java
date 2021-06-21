@@ -16,32 +16,34 @@ import model.DAOBase;
 import model.productVO;
 
 /**
- * Servlet implementation class preProductSelect
+ * Servlet implementation class preProductServlet
  */
-@WebServlet("/preProductSelect")
+@WebServlet("/preProductServlet")
 public class preProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+
     public preProductServlet() {
         super();
 
     }
 
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 		response.setContentType("text/html;charset=UTF-8");
 		
 		DAOBase daoBase = new DAOBase();		// 새로운 DAOBase 객체 생성
 		ArrayList<productVO> items = new ArrayList<>();	// 쿼리값 받을 productVO 리스트 생성
 		
 		items = daoBase.selectRowPre();				// code와 일치하는 쿼리문에서 정보를 추출하여 객체 업데이트
-		request.setAttribute("list", items);
+		request.setCharacterEncoding("UTF-8");
+		request.setAttribute("list", items);		// list라는 이름으로 정보값 담은 객체 전달
 		
         ServletContext context = getServletContext();
         RequestDispatcher dispatcher = context.getRequestDispatcher("/preProductSelect.jsp"); //넘길 페이지 주소
         dispatcher.forward(request, response);
 		
 	}
+	
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);

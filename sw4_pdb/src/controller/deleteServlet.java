@@ -36,6 +36,7 @@ public class deleteServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: delete").append(request.getContextPath());
+		response.setContentType("text/html;charset=UTF-8");
 		
 		DAOBase daoBase = new DAOBase();		// 새로운 DAOBase 객체 생성
 
