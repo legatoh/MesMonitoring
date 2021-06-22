@@ -33,11 +33,10 @@ public class InsertServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter pw = response.getWriter();
 
-		if (request.getParameter("code") != null) {
+		if (request.getParameter("code") == null) {
 			pw.println("<html>");
 			pw.println("<body>");
 			pw.println("입력된 정보가 없습니다.</br>");
@@ -62,7 +61,7 @@ public class InsertServlet extends HttpServlet {
 			pw.println("<html>");
 			pw.println("<body>");
 			pw.println("둥록완료</br>");
-			pw.println("<a href='productManagerSystem.jsp'>메인화면으로</a>");
+			pw.println("<a href='productMain.jsp'>메인화면으로</a>");
 			pw.println("</body>");
 			pw.println("</html>");
 		}

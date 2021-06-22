@@ -33,7 +33,6 @@ public class DeleteServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: delete").append(request.getContextPath());
 		response.setContentType("text/html;charset=UTF-8");
 		
 		DeleteDAOImpl deleteDAOImpl = new DeleteDAOImpl();		// 새로운 DeleteDAOImpl 객체 생성
