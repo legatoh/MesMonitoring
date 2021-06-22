@@ -9,7 +9,7 @@
 <body>
 <h1>생산관리 등록화면</h1><br>
 생산관리 등록화면<br>
-<form action="insertServlet" method="POST">
+<form action="InsertServlet" method="POST">
 <ul>
 <li>제품코드 <input type="text" name="code"></li>
 <li>제품이름 <input type="text" name="pname"></li>

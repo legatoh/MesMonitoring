@@ -1,8 +1,7 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Enumeration;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -12,20 +11,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.DAOBase;
-import model.productVO;
+import model.SelectDAOImpl;
+import model.StockVO;
 
 /**
- * Servlet implementation class deleteServlet
+ * Servlet implementation class StockProductServlet
  */
-@WebServlet("/deleteServlet")
-public class deleteServlet extends HttpServlet {
+@WebServlet("/StockProductServlet")
+public class StockProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public deleteServlet() {
+    public StockProductServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,23 +33,22 @@ public class deleteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: delete").append(request.getContextPath());
 		response.setContentType("text/html;charset=UTF-8");
 		
-		DAOBase daoBase = new DAOBase();		// 새로운 DAOBase 객체 생성
-
-		String code = request.getParameter("code");
+		// 새로운 SelectDAOImpl 객체 생성
+		SelectDAOImpl selectDAOImpl = new SelectDAOImpl();
+		// 쿼리값 받을 productVO 리스트 생성
+		ArrayList<StockVO> items = new ArrayList<>();	
 		
-		productVO item = new productVO(code);	// 입력받은 코드를 통해 새 productVO 객체 생성
+		// code와 일치하는 쿼리문에서 정보를 추출하여 객체 업데이트
+		items = selectDAOImpl.selectRowStock();				
+		// 정보값 담은 객체 전달
+		request.setAttribute("StockList", items);
 		
-		daoBase.deleteRow(item);				// code와 일치하는 쿼리문에서 정보를 추출하여 객체 삭제
-				
         ServletContext context = getServletContext();
-        RequestDispatcher dispatcher = context.getRequestDispatcher("/productSelectUpdate.jsp"); //넘길 페이지 주소
+        RequestDispatcher dispatcher = context.getRequestDispatcher("/StockSelected.jsp"); //넘길 페이지 주소
         dispatcher.forward(request, response);
-	
-	}
+    }
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

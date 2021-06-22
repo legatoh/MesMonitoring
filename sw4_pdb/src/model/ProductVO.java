@@ -1,6 +1,6 @@
 package model;
 
-public class productVO {
+public class ProductVO {
 	public String code;
 	public String pname;
 	public String cost;
@@ -9,9 +9,7 @@ public class productVO {
 	public String sale;
 	public String gcode;
 	
-	
-	
-	public productVO(String code) {
+	public ProductVO(String code) {
 		super();
 		this.code = code;
 		this.pname = "";
@@ -22,9 +20,7 @@ public class productVO {
 		this.gcode = "";
 	}
 
-
-
-	public productVO(String code, String pname, String cost, String pnum, String jnum, String sale, String gcode) {
+	public ProductVO(String code, String pname, String cost, String pnum, String jnum, String sale, String gcode) {
 		super();
 		this.code = code;
 		this.pname = pname;

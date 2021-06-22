@@ -12,7 +12,7 @@
 <script type="text/javascript">
 	function selectPRS(str) {
 		if (str == "pre") {
-			prsForm.action = "preProductServlet";
+			prsForm.action = "PreProductServlet";
 			prsForm.submit();
 		}
 		if (str == "rank") {

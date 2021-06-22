@@ -12,15 +12,15 @@
 <script type="text/javascript">
 	function selectSUD(str) {
 		if (str == "sel") {
-			sudForm.action = "selectServlet";
+			sudForm.action = "SelectServlet";
 			sudForm.submit();
 		}
 		if (str == "upd") {
-			sudForm.action = "updateServlet";
+			sudForm.action = "UpdateServlet";
 			sudForm.submit();
 		}
 		if (str == "del") {
-			sudForm.action = "deleteServlet";
+			sudForm.action = "DeleteServlet";
 			sudForm.submit();
 		}
 	}

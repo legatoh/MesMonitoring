@@ -1,8 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Enumeration;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -12,40 +10,51 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.DAOBase;
-import model.productVO;
+import model.ProductVO;
+import model.UpdateDAOImpl;
 
 /**
- * Servlet implementation class selectServlet
+ * Servlet implementation class updateServlet
  */
-@WebServlet("/selectServlet")
-public class selectServlet extends HttpServlet {
+@WebServlet("/UpdateServlet")
+public class UpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public selectServlet() {
+    public UpdateServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.setContentType("text/html;charset=UTF-8");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
+		request.setCharacterEncoding("UTF-8");
 		
-		DAOBase daoBase = new DAOBase();		// 새로운 DAOBase 객체 생성
+		// 새로운 SelectDAOImpl 객체 생성
+		UpdateDAOImpl updateDAOImpl = new UpdateDAOImpl();
 
+		// 전체 정보 가져오기
 		String code = request.getParameter("code");
+		String pname = request.getParameter("pname");
+		String cost = request.getParameter("cost");
+		String pnum = request.getParameter("pnum");
+		String jnum = request.getParameter("jnum");
+		String sale = request.getParameter("sale");
+		String gcode = request.getParameter("gcode");
 		
-		productVO item = new productVO(code);	// 입력받은 코드를 통해 새 productVO 객체 생성
+		// 입력받은 정보를 통해 새 productVO 객체 생성
+		ProductVO item = new ProductVO(code, pname, cost, pnum,
+										jnum, sale, gcode);
 		
-		daoBase.selectRow(item);				// code와 일치하는 쿼리문에서 정보를 추출하여 객체 업데이트
+		// code와 일치하는 쿼리문에서 정보를 추출하여 객체 업데이트
+		if(code != null && pname != null) {
+			updateDAOImpl.updateRow(item);
+		}
 		
-		// item에서 받은 정보를 원래 화면으로 전송
+		// 업데이트한 정보를 원래 화면으로 전송
 		request.setAttribute("code", item.code);
 		request.setAttribute("pname", item.pname);
 		request.setAttribute("cost", item.cost);
@@ -58,15 +67,12 @@ public class selectServlet extends HttpServlet {
         RequestDispatcher dispatcher = context.getRequestDispatcher("/productSelectUpdate.jsp"); //넘길 페이지 주소
         dispatcher.forward(request, response);
 
-		}
-	
-		// http://www.devkuma.com/books/pages/858 참고하여 리다이렉트로 고칠것
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
