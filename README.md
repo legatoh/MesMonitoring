@@ -13,7 +13,7 @@
 ### 총 개발 기간
 2021년 6월 8일 (화) - 요구사항 파악하고 개발 환경 구축, DB 구축 \
 2021년 6월 9일 (수) - 화면에 표시되는 화면(jsp) 작성, DTO, VO 클래스 생성, DAO 클래스 생성, 유저 입력 처리할 Servlet 틀 생성 \
-2021년 6월 10일 (목) - InsertServlet, SelectServlet, UpdateServlet 내용 작성, DB 연결, 쿼리문 작성 \
+2021년 6월 10일 (목) - InsertServlet, SelectServlet, UpdateServlet 내용 작성, DB 연결, 쿼리문 작성
 
 2021년 6월 21일 (월) - 추가 \
 2021년 6월 22일 (화) - 추가
