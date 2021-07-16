@@ -10,13 +10,13 @@
 최소 개발 환경 - Eclipse4.7(Oxygen), Java(Java SE JDK 8), Tomcat(9), DBMS(MariaDB 10) \
 실제 개발 환경 - Eclipse4.7.3a(Oxygen.3a), Java(Java SE JDK 8), Tomcat(9), DBMS(MariaDB 10)
 
-### 총 개발 기간
-2021년 6월 8일 (화) - 요구사항 파악하고 개발 환경 구축, DB 구축 \
-2021년 6월 9일 (수) - 화면에 표시되는 화면(jsp) 작성, DTO, VO 클래스 생성, DAO 클래스 생성, 유저 입력 처리할 Servlet 틀 생성 \
-2021년 6월 10일 (목) - InsertServlet, SelectServlet, UpdateServlet 내용 작성, DB 연결, 쿼리문 작성
-
-2021년 6월 21일 (월) - 추가 \
-2021년 6월 22일 (화) - 추가
+### 총 개발 기간 [20H]
+[2H] 2021년 06월 08일 (화) - 개발 환경 구축 \
+[3H] 2021년 06월 09일 (수) - '생산관리 시스템 화면'·'제품 입력 화면'·'제품 조회, 수정, 삭제 화면' 뷰 작성, DAO·DAO Base 생성, DB 연동 \
+[5H] 2021년 06월 10일 (목) - '제품 입력 화면' 구현(InsertServlet), '제품 조회, 수정, 삭제 화면' 일부 구현(SelectServlet, UpdateServlet) \
+[5H] 2021년 06월 21일 (월) - '제품 조회, 수정, 삭제 화면' 구현(DeleteServlet), '우선 생산 제품 화면' 구현(PreProductServlet), \
+                              '이익 순위 제품 화면' 구현(RankProductServlet), '그룹별 재고 수량 화면' 구현(StockProductServlet) \
+[5H] 2021년 06월 22일 (화) - 전체 기능 테스트 및 보완
 
 ---------------------
 
@@ -25,9 +25,13 @@
 
 ---------------------
 
-### 기능 설명
-#### 기능 1
-#### 기능 2
-#### 기능 3
+### 과제 요구사항 목록
+![2e1d7a53-2c24-4d7d-9438-9ed3145b4752 hwp-0001](https://user-images.githubusercontent.com/49296529/125903331-9d87b0ce-8c46-4144-9e1b-34db128cf748.jpg)
+![2e1d7a53-2c24-4d7d-9438-9ed3145b4752 hwp-0002](https://user-images.githubusercontent.com/49296529/125903352-9dbd47c0-3c4f-4084-b7bb-58fccf2f1eb7.jpg)
+![2e1d7a53-2c24-4d7d-9438-9ed3145b4752 hwp-0005](https://user-images.githubusercontent.com/49296529/125903389-22c6ee8a-9201-4d47-856e-034b1a5fd4eb.jpg)
+![2e1d7a53-2c24-4d7d-9438-9ed3145b4752 hwp-0006](https://user-images.githubusercontent.com/49296529/125903397-9c808637-dbae-4178-a756-63eb59b09fe5.jpg)
+![2e1d7a53-2c24-4d7d-9438-9ed3145b4752 hwp-0007](https://user-images.githubusercontent.com/49296529/125903403-4ae1effa-b0ad-41aa-a458-216afad700e5.jpg)
+![2e1d7a53-2c24-4d7d-9438-9ed3145b4752 hwp-0008](https://user-images.githubusercontent.com/49296529/125903412-f6c5ba24-9f5e-476c-a3ee-6df10d469e11.jpg)
+
 
 ---------------------
